@@ -1,0 +1,18 @@
+home:
+  title: ProductSpace
+  description: Analysis and Visualization of Product Space
+
+url: https://github.com/Carol-seven/ProductSpace
+
+template:
+  bootstrap: 5
+  opengraph:
+    image:
+      src: https://github.com/Carol-seven/ProductSpace/blob/main/man/figure/logo.png
+
+authors:
+  Shiying Xiao:
+    href: http://shiying-xiao.com
+
+development:
+  mode: auto

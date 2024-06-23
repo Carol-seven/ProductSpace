@@ -1,7 +1,8 @@
 #' Proximity
 #'
 #' @description
-#' Compute the proximity \insertCite{hidalgo2007product}{ProductSpace} based on RCA values.
+#' Compute the proximity \insertCite{hidalgo2007product}{ProductSpace} based on the RCA
+#' values.
 #'
 #' @param RCAmat An economy-by-product matrix with the RCA values.
 #'

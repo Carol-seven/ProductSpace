@@ -13,7 +13,8 @@ proximity(RCAmat)
 A product-by-product matrix with the proximity values.
 }
 \description{
-Compute the proximity \insertCite{hidalgo2007product}{ProductSpace} based on RCA values.
+Compute the proximity \insertCite{hidalgo2007product}{ProductSpace} based on the RCA
+values.
 }
 \references{
 \insertAllCited{}

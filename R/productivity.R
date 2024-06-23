@@ -1,10 +1,9 @@
 #'
-#' PRODY
+#' PRODY and EXPY
 #'
 #' @description
-#' Compute the PRODY (income/productivity level,
-#' \insertCite{hausmann2007you;nobrackets}{ProductSpace}) based on export and gross
-#' domestic product (GDP) data.
+#' Compute the PRODY and EXPY \insertCite{hausmann2007you}{ProductSpace} based on export
+#' and gross domestic product (GDP) data.
 #'
 #' @param expData A data frame or matrix containing the export data.
 #' \itemize{
@@ -14,6 +13,12 @@
 #' }
 #'
 #' @param gdpData A data frame containing the GDP data.
+#'
+#' @param measure A character string specifying the measure to compute:
+#' \enumerate{
+#' \item "prody": the income/productivity level.
+#' \item "expy": the income/productivity level of a country's export basket.
+#' }
 #'
 #' @param econ A character string (default = "economy") specifying the column name for
 #' economies when \code{expData} is a data frame.
@@ -28,16 +33,18 @@
 #' GDP values when \code{gdpData} is a data frame.
 #'
 #' @import tidyr
+#' @importFrom stats setNames
 #' @importFrom tibble column_to_rownames
 #' @importFrom Rdpack reprompt
 #'
-#' @return A data frame with the PRODY values.
+#' @return A numeric vector with the measured values.
 #'
 #' @references
 #' \insertAllCited{}
 
-prody <- function(expData, gdpData,
-                  econ = "economy", prod = "product", exp = "export", gdp = "GDP") {
+productivity <- function(expData, gdpData,
+                         measure = c("prody", "expy"),
+                         econ = "economy", prod = "product", exp = "export", gdp = "GDP") {
 
   if (!(is.data.frame(expData) | is.matrix(expData))) {
     stop("'expData' must be a data.frame or economy-by-product matrix!")
@@ -60,7 +67,15 @@ prody <- function(expData, gdpData,
 
   # numerator = Xep / Xe.
   numerator <- expData / rowSums(expData)
-  prody <- data.frame(PRODY = (t(numerator) / colSums(numerator)) %*% gdpData)
+  prody <- (t(numerator) / colSums(numerator)) %*% gdpData
 
-  return(prody)
+  measure <- match.arg(measure)
+
+  if (measure == "prody") {
+    result <- setNames(as.numeric(prody), colnames(expData))
+  } else if (measure == "expy") {
+    result <- setNames(as.numeric(numerator %*% prody), rownames(expData))
+  }
+
+  return(result)
 }

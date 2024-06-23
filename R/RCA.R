@@ -71,4 +71,3 @@ rca <- function(data, binary = TRUE, threshold = 1,
 
   return(RCA)
 }
-

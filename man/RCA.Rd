@@ -40,7 +40,7 @@ export values when \code{data} is a data frame.}
 An economy-by-product matrix with the RCA values.
 }
 \description{
-Computes the revealed comparative advantage (RCA) index
+Compute the revealed comparative advantage (RCA) index
 \insertCite{balassa1989revealed}{ProductSpace} for a given dataset.
 }
 \references{

@@ -2,7 +2,7 @@
 #' Revealed Comparative Advantage Index / Balassa Index
 #'
 #' @description
-#' Computes the revealed comparative advantage (RCA) index
+#' Compute the revealed comparative advantage (RCA) index
 #' \insertCite{balassa1989revealed}{ProductSpace} for a given dataset.
 #'
 #' @param data A data frame or matrix containing the data.

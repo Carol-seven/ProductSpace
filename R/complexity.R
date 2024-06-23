@@ -20,6 +20,8 @@
 #'
 #' @references
 #' \insertAllCited{}
+#'
+#' @export
 
 complexity <- function(RCAmat, measure = c("eci", "pci")) {
 

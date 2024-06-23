@@ -21,6 +21,8 @@
 #'
 #' @references
 #' \insertAllCited{}
+#'
+#' @export
 
 densdist <- function(RCAmat, PROXmat, measure = c("density", "distance")) {
 

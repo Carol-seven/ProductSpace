@@ -19,6 +19,8 @@
 #'
 #' @references
 #' \insertAllCited{}
+#'
+#' @export
 
 divubq <- function(RCAmat, measure = c("diversity", "ubiquity")) {
 

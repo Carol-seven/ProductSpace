@@ -12,6 +12,8 @@
 #'
 #' @references
 #' \insertAllCited{}
+#'
+#' @export
 
 proximity <- function(RCAmat) {
 

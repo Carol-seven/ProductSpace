@@ -36,6 +36,8 @@
 #'
 #' @references
 #' \insertAllCited{}
+#'
+#' @export
 
 rca <- function(data, binary = TRUE, threshold = 1,
                 econ = "economy", prod = "product", exp = "export") {

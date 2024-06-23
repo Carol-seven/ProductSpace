@@ -42,6 +42,8 @@
 #'
 #' @references
 #' \insertAllCited{}
+#'
+#' @export
 
 productivity <- function(expData, gdpData,
                          measure = c("prody", "expy"),

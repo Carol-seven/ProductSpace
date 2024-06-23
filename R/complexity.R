@@ -9,8 +9,8 @@
 #'
 #' @param measure A character string specifying the measure to compute:
 #' \enumerate{
-#' \item "eci": economic complexity index
-#' \item "pci": product complexity index
+#' \item "eci": economic complexity index.
+#' \item "pci": product complexity index.
 #' }
 #'
 #' @importFrom stats setNames

@@ -32,6 +32,7 @@
 #' @param gdp A character string (default = "GDP") specifying the column name for
 #' GDP values when \code{gdpData} is a data frame.
 #'
+#' @import dplyr
 #' @import tidyr
 #' @importFrom stats setNames
 #' @importFrom tibble column_to_rownames
@@ -56,6 +57,7 @@ productivity <- function(expData, gdpData,
 
   if (is.data.frame(expData)) {
     expData <- expData %>%
+      select(econ, prod, exp) %>%
       spread(prod, exp, fill = 0) %>%
       column_to_rownames(var = econ) %>%
       as.matrix.data.frame()

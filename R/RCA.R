@@ -27,6 +27,7 @@
 #' @param threshold A numeric value (default = 1) specifying the threshold for binary RCA
 #' values.
 #'
+#' @import dplyr
 #' @import tidyr
 #' @importFrom tibble column_to_rownames
 #' @importFrom Rdpack reprompt
@@ -57,6 +58,7 @@ rca <- function(data, binary = TRUE, threshold = 1,
 
   if (is.data.frame(data)) {
     data <- data %>%
+      select(econ, prod, exp) %>%
       spread(prod, exp, fill = 0) %>%
       column_to_rownames(var = econ)
   }

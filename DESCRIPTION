@@ -11,6 +11,7 @@ Description: Tools for the analysis and visualization of the product space.
 License: GPL-3 + file LICENSE
 Imports: 
     Rdpack,
+    dplyr,
     tibble,
     tidyr
 Encoding: UTF-8

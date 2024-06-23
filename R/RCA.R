@@ -3,7 +3,7 @@
 #'
 #' @description
 #' Compute the revealed comparative advantage (RCA) index
-#' \insertCite{balassa1989revealed}{ProductSpace} for a given dataset.
+#' \insertCite{balassa1965trade}{ProductSpace} for a given dataset.
 #'
 #' @param data A data frame or matrix containing the data.
 #' \itemize{
@@ -21,22 +21,22 @@
 #' @param exp A character string (default = "export") specifying the column name for
 #' export values when \code{data} is a data frame.
 #'
-#' @param binary A boolean (default = FALSE) specifying whether to return binary RCA
-#' values (1 if RCA >= threshold, 0 otherwise).
+#' @param binary A boolean (default = TRUE) specifying whether to return binary RCA values
+#' (1 if RCA >= threshold, 0 otherwise).
 #'
 #' @param threshold A numeric value (default = 1) specifying the threshold for binary RCA
 #' values.
 #'
 #' @import tidyr
-#' @importFrom Rdpack reprompt
 #' @importFrom tibble column_to_rownames
+#' @importFrom Rdpack reprompt
 #'
 #' @return An economy-by-product matrix with the RCA values.
 #'
 #' @references
 #' \insertAllCited{}
 
-RCA <- function(data, binary = FALSE, threshold = 1,
+rca <- function(data, binary = TRUE, threshold = 1,
                 econ = "economy", prod = "product", exp = "export") {
 
   if (!(is.data.frame(data) | is.matrix(data))) {

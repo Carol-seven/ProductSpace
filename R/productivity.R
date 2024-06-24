@@ -71,7 +71,10 @@ productivity <- function(expData, gdpData,
 
   # numerator = Xep / Xe.
   numerator <- expData / rowSums(expData)
-  prody <- (t(numerator) / colSums(numerator)) %*% gdpData
+  numerator[is.nan(numerator)] <- 0
+  ratio <- t(numerator) / colSums(numerator)
+  ratio[is.nan(ratio)] <- 0
+  prody <- ratio %*% gdpData
 
   measure <- match.arg(measure)
 

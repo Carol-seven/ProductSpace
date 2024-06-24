@@ -21,7 +21,7 @@ proximity <- function(RCAmat) {
     stop("'RCAmat' must be an economy-by-product matrix with the RCA values!")
   }
 
-  # Mshared / max(M.pt)
+  ## Mshared / max(M.pt)
   prox <- crossprod(RCAmat, RCAmat) / outer(colSums(RCAmat), colSums(RCAmat), pmax)
 
   return(prox)

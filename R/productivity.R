@@ -69,7 +69,7 @@ productivity <- function(expData, gdpData,
     gdpData <- gdpData[[gdp]]
   }
 
-  # numerator = Xep / Xe.
+  ## numerator = Xep / Xe.
   numerator <- expData / rowSums(expData)
   numerator[is.nan(numerator)] <- 0
   ratio <- t(numerator) / colSums(numerator)

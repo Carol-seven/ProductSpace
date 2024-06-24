@@ -66,7 +66,12 @@ rca <- function(data, binary = TRUE, threshold = 1,
   }
 
   ## RCAep = (Xep / Xe.) / (X.p / X..)
-  RCA <- t(t(data / rowSums(data)) / (colSums(data) / sum(data)))
+  ## RCA <- t(t(data / rowSums(data)) / (colSums(data) / sum(data)))
+  numerator <- t(data / rowSums(data))
+  numerator[is.nan(numerator)] <- 0
+  denominator <- colSums(data) / sum(data)
+  RCA <- t(numerator / denominator)
+  RCA[is.nan(RCA)] <- 0
 
   if (binary) {
     RCA[RCA < threshold] <- 0

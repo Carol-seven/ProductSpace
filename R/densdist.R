@@ -39,7 +39,7 @@ densdist <- function(RCAmat, PROXmat, measure = c("density", "distance")) {
   if (measure == "density") {
     result <- RCAmat %*% t(PROXmat / rowSums(PROXmat))
   } else if (measure == "distance") {
-    reuslt <- (1 - RCAmat) %*% t(PROXmat / rowSums(PROXmat))
+    result <- (1 - RCAmat) %*% t(PROXmat / rowSums(PROXmat))
   }
 
   return(result)

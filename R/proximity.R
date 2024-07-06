@@ -23,6 +23,7 @@ proximity <- function(RCAmat) {
 
   ## Mshared / max(M.pt)
   prox <- crossprod(RCAmat, RCAmat) / outer(colSums(RCAmat), colSums(RCAmat), pmax)
+  prox[is.nan(prox)] <- 0
 
   return(prox)
 }

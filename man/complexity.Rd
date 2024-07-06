@@ -4,23 +4,31 @@
 \alias{complexity}
 \title{Complexity Index}
 \usage{
-complexity(RCAmat, measure = c("eci", "pci"))
+complexity(RCAmat, method = c("eigen", "fc", "mr"), niter = 20, gamma = 1)
 }
 \arguments{
 \item{RCAmat}{An economy-by-product matrix with the RCA values.}
 
-\item{measure}{A character string specifying the measure to compute:
-\enumerate{
-\item "eci": economic complexity index.
-\item "pci": product complexity index.
+\item{method}{A character string specifying the method to calculate: \itemize{
+\item "eigen": the eigenvector solution \insertCite{hausmann2014atlas}{ProductSpace}.
+\item "fc": fitness-complexity method
+\insertCite{tacchella2012new,pugliese2016convergence}{ProductSpace}.
+\item "mr": method of reflections
+\insertCite{hidalgo2009building,caldarelli2012network}{ProductSpace}.
 }}
+
+\item{niter}{An integer (default = 20) specifying the number of iterations for
+\code{method = "fc"} and \code{method = "mr"}.}
+
+\item{gamma}{A numeric value (default = 1) specifying the tuning parameter for
+\code{method = "fc"}.}
 }
 \value{
-A numeric vector with the measured values.
+A list containing ECI and PCI.
 }
 \description{
 Compute the economic complexity index (ECI) and the product complexity index (PCI)
-\insertCite{hidalgo2009building}{ProductSpace} based on the RCA values.
+based on the RCA values.
 }
 \references{
 \insertAllCited{}

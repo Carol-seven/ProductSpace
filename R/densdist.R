@@ -36,10 +36,15 @@ densdist <- function(RCAmat, PROXmat, measure = c("density", "distance")) {
 
   measure <- match.arg(measure)
 
+  result <- t(PROXmat / rowSums(PROXmat))
+  result[is.nan(result)] <- 0
+
   if (measure == "density") {
-    result <- RCAmat %*% t(PROXmat / rowSums(PROXmat))
+    ## result <- RCAmat %*% t(PROXmat / rowSums(PROXmat))
+    result <- RCAmat %*% result
   } else if (measure == "distance") {
-    result <- (1 - RCAmat) %*% t(PROXmat / rowSums(PROXmat))
+    ## result <- (1 - RCAmat) %*% t(PROXmat / rowSums(PROXmat))
+    result <- (1 - RCAmat) %*% result
   }
 
   return(result)
